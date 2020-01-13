@@ -1,10 +1,5 @@
 FROM ubuntu:18.04
 
-RUN mkdir /Recipes
-WORKDIR /Recipes
-
-ADD . /Recipes/
-
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get install -y \
@@ -12,6 +7,11 @@ RUN apt-get install -y \
     python3-pip \
     postgresql-client \
     gettext
+
+RUN mkdir /Recipes
+WORKDIR /Recipes
+
+ADD . /Recipes/
 
 RUN pip3 install --upgrade pip
 
